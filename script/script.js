@@ -54,7 +54,7 @@ function game() {
         const computerSelection = computerPlay();
         console.log(`You: ${playerSelection}`);
         console.log(`Computer: ${computerSelection}`);
-        console.log(playOneRound(playerSelection, computerSelection));
+        console.log(`Result: ${playOneRound(playerSelection, computerSelection)}`);
     }
 }
 
