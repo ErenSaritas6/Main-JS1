@@ -1,43 +1,61 @@
 function computerPlay() {
     let randomOne = Math.floor(Math.random() * (4 - 1) ) + 1;
     if(randomOne == 1) {
-        return `ROCK`;
+        return `rock`;
     }
     else if(randomOne == 2) {
-        return `PAPER`;
+        return `paper`;
     }
     else {
-        return `SCISSORS`;
+        return `scissors`;
     }
 }
 
 function playOneRound (playerSelection, computerSelection) {
 
-let playerSelectionUp = playerSelection.toUpperCase();
-const computerSelection = computerPlay();
+    const playerSelectionUp = playerSelection.toLowerCase();
 
-    switch (playerSelectionUp, computerSelection) {
-        case (playerSelectionUp == `ROCK` && computerSelection == `SCISSORS`):
-            `You Win! ${playerSelectionUp} beats ${computerSelection}.`;
-            break;
-        case (playerSelectionUp == `PAPER` && computerSelection == `ROCK`):
-            `You Win! ${playerSelectionUp} beats ${computerSelection}.`;
-            break;
-        case (playerSelectionUp == `SCISSORS` && computerSelection == `PAPER`):
-            `You Win! ${playerSelectionUp} beats ${computerSelection}.`;
-            break;
-        case (playerSelectionUp == `SCISSORS` && computerSelection == `ROCK`):
-            `You Lose! ${computerSelection} beats ${playerSelectionUp}.`;
-            break;
-        case (playerSelectionUp == `ROCK` && computerSelection == `PAPER`):
-            `You Lose! ${computerSelection} beats ${playerSelectionUp}.`;
-            break;
-        case (playerSelectionUp == `PAPER` && computerSelection == `SCISSORS`):
-            `You Lose! ${computerSelection} beats ${playerSelectionUp}.`;
-            break;
-        default:
-            `It is a draw!`;
+    if (playerSelectionUp === `rock` && computerSelection === `scissors`) {
+        return `You Win! Rock beats Scissors.`;
+    }
+
+    else if (playerSelectionUp === `paper` && computerSelection === `rock`) {
+        return `You Win! Paper beats Rock.`;
+    }
+
+    else if (playerSelectionUp === `scissors` && computerSelection === `paper`) {
+        return `You Win! Scissors beats Paper.`;
+    }
+
+    else if (playerSelectionUp === `scissors` && computerSelection === `rock`) {
+        return `You Lose! Rock beats Scissors.`;
+    }
+
+    else if (playerSelectionUp === `rock` && computerSelection === `paper`) {
+        return `You Lose! Paper beats Rock.`;
+    }
+
+    else if (playerSelectionUp === `paper` && computerSelection === `scissors`) {
+        return `You Lose! Scissors beats Paper.`;
+    }
+
+    else if (playerSelectionUp !== `rock` && playerSelectionUp !== `paper` && playerSelectionUp !== `scissors`) {
+        return `Please enter Rock, Paper or Scissors!`;
+    }
+
+    else {
+        return `It is a draw!`;
     }
 }
 
-// function game() { playerselection = prompt...}
+function game() {
+    for(let i = 0; i < 5; i++) {
+        const playerSelection = prompt("Rock, Paper or Scissors?");
+        const computerSelection = computerPlay();
+        console.log(`You: ${playerSelection}`);
+        console.log(`Computer: ${computerSelection}`);
+        console.log(playOneRound(playerSelection, computerSelection));
+    }
+}
+
+game();
