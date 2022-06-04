@@ -16,39 +16,39 @@ let countComputer = 0;
 
 function playOneRound (playerSelection, computerSelection) {
 
-    const playerSelectionUp = playerSelection.toLowerCase();
+    const playerSelectionDown = playerSelection.toLowerCase();
 
-    if (playerSelectionUp === `rock` && computerSelection === `scissors`) {
+    if (playerSelectionDown === `rock` && computerSelection === `scissors`) {
         countPlayer++;
         return `You Win! Rock beats Scissors.`;
     }
 
-    else if (playerSelectionUp === `paper` && computerSelection === `rock`) {
+    else if (playerSelectionDown === `paper` && computerSelection === `rock`) {
         countPlayer++;
         return `You Win! Paper beats Rock.`;
     }
 
-    else if (playerSelectionUp === `scissors` && computerSelection === `paper`) {
+    else if (playerSelectionDown === `scissors` && computerSelection === `paper`) {
         countPlayer++;
         return `You Win! Scissors beats Paper.`;
     }
 
-    else if (playerSelectionUp === `scissors` && computerSelection === `rock`) {
+    else if (playerSelectionDown === `scissors` && computerSelection === `rock`) {
         countComputer++;
         return `You Lose! Rock beats Scissors.`;
     }
 
-    else if (playerSelectionUp === `rock` && computerSelection === `paper`) {
+    else if (playerSelectionDown === `rock` && computerSelection === `paper`) {
         countComputer++;
         return `You Lose! Paper beats Rock.`;
     }
 
-    else if (playerSelectionUp === `paper` && computerSelection === `scissors`) {
+    else if (playerSelectionDown === `paper` && computerSelection === `scissors`) {
         countComputer++;
         return `You Lose! Scissors beats Paper.`;
     }
 
-    else if (playerSelectionUp !== `rock` && playerSelectionUp !== `paper` && playerSelectionUp !== `scissors`) {
+    else if (playerSelectionDown !== `rock` && playerSelectionDown !== `paper` && playerSelectionDown !== `scissors`) {
         return `Please enter Rock, Paper or Scissors!`;
     }
 
