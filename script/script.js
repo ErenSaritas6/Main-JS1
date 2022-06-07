@@ -16,7 +16,7 @@ let countComputer = 0;
 
 function playOneRound (playerSelection, computerSelection) {
 
-    const playerSelectionDown = playerSelection.toLowerCase();
+    let playerSelectionDown = playerSelection.toLowerCase();
 
     if (playerSelectionDown === `rock` && computerSelection === `scissors`) {
         countPlayer++;
@@ -49,7 +49,7 @@ function playOneRound (playerSelection, computerSelection) {
     }
 
     else if (playerSelectionDown !== `rock` && playerSelectionDown !== `paper` && playerSelectionDown !== `scissors`) {
-        return `Please enter Rock, Paper or Scissors!`;
+        isValid = false;
     }
 
     else {
@@ -59,8 +59,17 @@ function playOneRound (playerSelection, computerSelection) {
 
 function game() {
     for(let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Rock, Paper or Scissors?");
+
         const computerSelection = computerPlay();
+        let playerSelection = prompt("Rock, Paper or Scissors?");
+        playerSelectionDown = playerSelection.toLowerCase();
+        
+        while (playerSelectionDown !== `rock` && playerSelectionDown !== `paper` && playerSelectionDown !== `scissors`) {
+
+                playerSelection = prompt("Please Enter Rock, Paper or Scissors!");
+                playerSelectionDown = playerSelection.toLowerCase();
+        }
+
         console.log(`You: ${playerSelection}`);
         console.log(`Computer: ${computerSelection}`);
         console.log(`Result: ${playOneRound(playerSelection, computerSelection)}`);
