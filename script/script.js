@@ -48,10 +48,6 @@ function playOneRound (playerSelection, computerSelection) {
         return `You Lose! Scissors beats Paper.`;
     }
 
-    else if (playerSelectionDown !== `rock` && playerSelectionDown !== `paper` && playerSelectionDown !== `scissors`) {
-        isValid = false;
-    }
-
     else {
         return `It is a draw!`;
     }
